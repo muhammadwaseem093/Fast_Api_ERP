@@ -18,13 +18,7 @@ def get_db():
 def create_parameter(parameter:ParameterCreate, db:Session = Depends(get_db)):
     return crud_parameter.create_parameter(db, parameter)
 
-@router.get("/", response_model=list[ParameterOut])
-def get_parameters(db:Session = Depends(get_db)):
-    return crud_parameter.get_parameters(db)
 
-@router.get('/{parameter_id}', response_model=ParameterOut)
-def get_parameter_by_id(parmeter_id:int, db:Session = Depends(get_db)):
-    parameter = crud_parameter.get_parameter_by_id(db, parameter_id)
-    if not parameter:
-        raise HTTPException(status_code=400, detail="Parameter Not Found!")
-    return parameter
+@router.get('/{submodule_id}', response_model=list[ParameterOut])
+def get_parameters(submodule_id:str, db:Session = Depends(get_db)):
+    return crud_parameter.get_parameter_by_submodule(db, submodule_id)
