@@ -16,7 +16,18 @@ load_dotenv()
 # ✅ Import your settings and DB/models
 from backend.app.core.config import settings
 from backend.app.database import Base
-from backend.app.models import user  # include ALL your models here
+from backend.app.models import user
+from backend.app.models import role
+from backend.app.models import role_permission
+from backend.app.models import permission
+from backend.app.models import employee
+from backend.app.models import module
+from backend.app.models import submodule
+from backend.app.models import parameter
+from backend.app.models import category
+from backend.app.models import subcategory
+from backend.app.models import subcategory_param_value
+      # include ALL your models here
 
 # Alembic Config object (from alembic.ini)
 config = context.config

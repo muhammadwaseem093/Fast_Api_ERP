@@ -4,7 +4,7 @@ from app.schemas.subcategory_param_value import SubcategoryParamValueCreate
 
 
 def create_param_value(db:Session, value:SubcategoryParamValueCreate):
-    db_obj = SubcategoryParamValue(**value.dic())
+    db_obj = SubcategoryParamValue(**value.dict())
     db.add(db_obj)
     db.commit()
     db.refresh(db_obj)

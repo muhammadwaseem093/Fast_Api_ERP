@@ -1,4 +1,4 @@
-from sqlalchemy import Column , String, ForeighKey
+from sqlalchemy import Column , String, ForeignKey
 from app.database import Base 
 
 class Category(Base):

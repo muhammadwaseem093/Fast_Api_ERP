@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import SessionLocal
-from app.database import get_db
 from app.schemas.parameter import ParameterCreate, ParameterOut
 from app.crud import parameter as crud_parameter
 
@@ -21,4 +20,4 @@ def create_parameter(parameter:ParameterCreate, db:Session = Depends(get_db)):
 
 @router.get('/{submodule_id}', response_model=list[ParameterOut])
 def get_parameters(submodule_id:str, db:Session = Depends(get_db)):
-    return crud_parameter.get_parameter_by_submodule(db, submodule_id)
+    return crud_parameter.get_parameters_by_submodule(db, submodule_id)

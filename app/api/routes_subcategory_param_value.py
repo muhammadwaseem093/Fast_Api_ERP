@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import SessionLocal
-from app.database import get_db
 from app.schemas.subcategory_param_value import SubcategoryParamValueCreate, SubcategoryParamValueOut
 from app.crud import subcategory_param_value as crud_subcategory_param
 

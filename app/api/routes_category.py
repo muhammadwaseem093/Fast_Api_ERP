@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import SessionLocal
-from app.database import get_db
 from app.schemas.category import CategoryCreate, CategoryOut
 from app.crud import category as crud_category
 

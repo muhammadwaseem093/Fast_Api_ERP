@@ -4,7 +4,7 @@ from app.schemas.submodule import SubmoduleCreate
 
 
 def create_submodule(db:Session, submodule:SubmoduleCreate):
-    db-obj = Submodule(**submodule.dic())
+    db_obj = Submodule(**submodule.dict())
     db.add(db_obj)
     db.commit()
     db.refresh(db_obj)

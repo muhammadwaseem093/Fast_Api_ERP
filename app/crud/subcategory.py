@@ -11,4 +11,4 @@ def create_subcategory(db:Session, subcat:SubcategoryCreate):
     return db_obj
 
 def get_subcategories_by_category(db:Session, category_id:str):
-    return sb:query(Subcategory).filter(Subcategory.category_id = category_id).all
+    return db.query(Subcategory).filter(Subcategory.category_id == category_id).all()

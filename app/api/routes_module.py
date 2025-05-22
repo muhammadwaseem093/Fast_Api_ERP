@@ -1,7 +1,6 @@
-from fastapi import APIROuter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session 
 from app.database import SessionLocal 
-from app.database import get_db
 from app.schemas.module import ModuleCreate, ModuleOut
 from app.crud import module as crud_module
 
@@ -25,7 +24,7 @@ def get_modules(db:Session = Depends(get_db)):
     return  crud_module.get_modules(db)
 
 @router.get("/{module_id}", response_model=ModuleOut)
-def get_module_by_id(module_id:int, db:Session = Depends(get_db)):
+def get_module_by_id(module_id:str, db:Session = Depends(get_db)):
     module = crud_module.get_module_by_id(db, module_id)
     if not module:
         raise HTTPException(status_code=400, detail="Module Not Found")

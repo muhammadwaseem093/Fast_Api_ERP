@@ -3,8 +3,10 @@ from pydantic import BaseModel
 class ParameterBase(BaseModel):
     id:str
     name:str
-    submodule_id:str
     type:str = "checkbox"
+    submodule_id:str
+    group:str
+
     
 class ParameterCreate(ParameterBase):
     pass

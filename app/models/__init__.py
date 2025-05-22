@@ -1,1 +1,1 @@
-from . import user,role,permission , role_permission, employee, module, submodule, category, subcategory, subcategory_param_value
+from . import user,role,permission , role_permission, employee, module, submodule,parameter, category, subcategory, subcategory_param_value
