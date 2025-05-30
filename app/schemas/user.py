@@ -3,10 +3,13 @@ from typing import Optional
 
 class UserBase(BaseModel):
     username:str 
-    email:str 
+    email:str
+     
 
 class UserCreate(UserBase):
     password:str 
+    is_active:bool=True
+    role_id:int
     
 class UserLogin(UserBase):
     username:str 

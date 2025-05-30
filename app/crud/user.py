@@ -18,7 +18,10 @@ def create_user(db:Session, user:schemas.user.UserCreate):
     db_user = models.user.User(
         username=user.username,
         email=user.email,
-        hashed_password=hash_password(user.password)
+        hashed_password=hash_password(user.password),
+        is_active=user.is_active,
+        role_id=user.role_id,
+        
     )
     db.add(db_user)
     db.commit()
