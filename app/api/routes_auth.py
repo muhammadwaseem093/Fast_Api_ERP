@@ -31,6 +31,14 @@ def get_user(user_id:int, db:Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="User not found")
     return user
 
+@router.post('/users', response_model=UserOut)
+def create_user(user: UserCreate, db: Session = Depends(get_db)):
+    db_user = crud_user.get_user_by_username(db, username=user.username)
+    if db_user:
+        raise HTTPException(status_code=400, detail="Username already registered")
+    return crud_user.create_user(db=db, user=user)
+    
+
 @router.put("/user/{user_id}", response_model=UserOut)
 def update_user(user_id:int, user_update:UserUpdate, db:Session = Depends(get_db)):
     user = crud_user.update_user(db, user_id=user_id, user_update=user_update)
