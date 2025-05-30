@@ -65,6 +65,7 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
     return {"access_token": access_token, "token_type": "bearer"}
 
 
-@router.post('/logout')
+@router.post('/logout', status_code=status.HTTP_204_NO_CONTENT)
 def logout():
-    return {"message": "Logout successful"}
+    return JSONResponse(status_code=status.HTTP_204_NO_CONTENT, content={"message": "Logged out successfully"})
+    
